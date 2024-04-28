@@ -1,0 +1,67 @@
+:root {
+    --samon: #EF9D71;
+    --black: #000;
+    --white: #ff;
+    --cyan: #AEDEE0;
+    --dark-salmon: #d86629;
+    --dark-cyan: #204345
+}
+
+@font-face {
+    font-family: 'PPNeueMachina';
+    src: url('../fonts/PP\ Neue\ Machina.ttf')
+        /* Add additional formats if necessary */
+}
+
+@font-face {
+    font-family: 'Neue-Machina';
+    src: url('../fonts/Neue-Machina-Inktrap-Medium.ttf')
+        /* Add additional formats if necessary */
+}
+
+*::selection {
+    background-color: #EF9D71;
+    color: #fff;
+}
+
+body[theme="black"] {
+    background-color: black;
+}
+
+
+body[theme="black"] .section {
+    color: white;
+}
+
+
+body[theme="cyan"] {
+    background-color: #AEDEE0;
+}
+
+
+body[theme="cyan"] .section {
+    color: rgb(11, 14, 14)rgb(7, 7, 7)
+}
+
+body[theme="salmon"] {
+    background-color: #EF9D71;
+    
+
+}
+
+body[theme="salmon"] .section {
+    color: var(--black);
+}
+
+body[theme="white"] {
+    background-color: var(--white)
+}
+
+body[theme="white"] .section {
+    color: var(--black);
+    
+}
+
+.my-custom-class {
+    font-family: 'PPNeueMachina', sans-serif;
+}
