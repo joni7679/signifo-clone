@@ -7,6 +7,10 @@
     --dark-cyan: #204345
 }
 
+.videodiv {
+    clip-path: circle(var(--clip) at 50% 50%);
+}
+
 @font-face {
     font-family: 'PPNeueMachina';
     src: url('../fonts/PP\ Neue\ Machina.ttf')
@@ -18,6 +22,14 @@
     src: url('../fonts/Neue-Machina-Inktrap-Medium.ttf')
         /* Add additional formats if necessary */
 }
+
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: url('../fonts/Satoshi-Variable.ttf')
+        /* Add additional formats if necessary */
+}
+
+
 
 *::selection {
     background-color: #EF9D71;
@@ -45,7 +57,7 @@ body[theme="cyan"] .section {
 
 body[theme="salmon"] {
     background-color: #EF9D71;
-    
+
 
 }
 
@@ -59,7 +71,7 @@ body[theme="white"] {
 
 body[theme="white"] .section {
     color: var(--black);
-    
+
 }
 
 .my-custom-class {
