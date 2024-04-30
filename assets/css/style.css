@@ -1,10 +1,14 @@
 :root {
     --samon: #EF9D71;
     --black: #000;
-    --white: #ff;
+    --white: #fff;
     --cyan: #AEDEE0;
     --dark-salmon: #d86629;
     --dark-cyan: #204345
+}
+
+body{
+    transition: background-color ease-out .5s,
 }
 
 .videodiv {
@@ -37,12 +41,12 @@
 }
 
 body[theme="black"] {
-    background-color: black;
+    background-color: var(--black);
 }
 
 
 body[theme="black"] .section {
-    color: white;
+    color: var(--white);
 }
 
 

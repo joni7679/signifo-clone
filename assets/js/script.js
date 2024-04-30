@@ -1,4 +1,7 @@
 
+(function () {
+    const locomotiveScroll = new LocomotiveScroll();
+})();
 
 function homeSectionAnimation() {
     gsap.to(".videodiv", {
@@ -6,7 +9,7 @@ function homeSectionAnimation() {
             trigger: ".home",
             start: "top top",
             end: "bottom top",
-            markers: true,
+            // markers: true,
             scrub: 3,
             pin: true
         },
@@ -18,8 +21,22 @@ function homeSectionAnimation() {
 
 
 }
-
 homeSectionAnimation()
+// gsap.to(".cards__item", {
+//     scale: 1.2,
+//     borderRadius: "15px",
+//     backgroundColor: "black",
+//     color: "white",
+//     stagger: 0.5,
+//     duration: 0.2,
+//     scrollTrigger: {
+//         trigger: ".card-part", // Corrected the trigger selector
+//         start: "top 70%",
+//         end: "bottom 30%",
+//         scrub: 3,
+//         markers: true
+//     }
+// });
 
 function horizontalScrollbar() {
     let horizontalSection = document.querySelector('.model-container');
@@ -34,13 +51,11 @@ function horizontalScrollbar() {
             pin: true,
             scrub: true,
             invalidateOnRefresh: true,
-            markers: true,
+            // markers: true,
         }
     });
 }
 horizontalScrollbar()
-
-
 
 function teamsectionEffect() {
     let teamelem = document.querySelectorAll(".team-elem");
@@ -67,3 +82,23 @@ function teamsectionEffect() {
 
 teamsectionEffect()
 
+
+
+document.querySelectorAll(".section")
+    .forEach((elem) => {
+        ScrollTrigger.create({
+            trigger: elem,
+            start: "top 50%",
+            end: "bottom 50%",
+            markers: true,
+            onEnter: function () {
+                document.body.setAttribute("theme", elem.dataset.color)
+            },
+            onEnterBack: function () {
+                document.body.setAttribute("theme", elem.dataset.color)
+            }
+        })
+
+
+
+    })
