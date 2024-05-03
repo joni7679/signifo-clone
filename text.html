@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Animation</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+
+    <div class="w-full h-screen"></div>
+    <div class="testimonials-left-part w-[55vw]">
+        <div class="text w-full text-2xl">
+            <h3 class="font-Satoshi-Variable testimonials-heading text-[#ddd]">Working with the Significo team has been
+                such a pleasure! We took on a significant
+                project to rebuild our entire platform and the
+                team approached the project with our best
+                interests in mind. They continue to prioritize
+                the end user experience and offer amazing
+                expertise in all of the areas we lack internally.
+                I would personally be lost without this team,
+                their ability to problem solve, their openness
+                to feedback and desire to build the product
+                like it is their own.</h3>
+            <div class="w-full flex items-center justify-center flex-col">
+                <div class="testimonials-avatar w-[5rem] h-[5rem] rounded-full overflow-hidden mt-5">
+                    <img class="w-full h-full object-cover" alt="" loading="eager"
+                        src="https://assets-global.website-files.com/659dbdfd5a080be8d3483190/659dbdfd5a080be8d34832e5_MirandaErnst.jpeg">
+                </div>
+                <p class="font-Satoshi-Variable text-lg">
+                <h3>Miranda Ernst</h3>
+                <p class="text-base mt-3"> Product Manager@
+                    HealthCheck360
+                </p>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Duplicate the structure for another testimonial -->
+    <div class="testimonials-left-part w-[55vw] mt-[540px]">
+        <div class="text w-full text-2xl">
+            <h3 class="font-Satoshi-Variable testimonials-heading text-[#ddd]">Another testimonial goes here...</h3>
+            <div class="w-full flex items-center justify-center flex-col">
+                <div class="testimonials-avatar w-[5rem] h-[5rem] rounded-full overflow-hidden mt-5">
+                    <img class="w-full h-full object-cover" alt="" loading="eager"
+                        src="https://example.com/another-avatar.jpg">
+                </div>
+                <p class="font-Satoshi-Variable text-lg">
+                <h3>Another Person</h3>
+                <p class="text-base mt-3"> Another Position@
+                    Another Company
+                </p>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-center items-center w-full h-screen ">
+        <h1 class="text-6xl font-pp-neue-machina explore-text text-[red]">Explore Our Insights</h1>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+        let clutter = '';
+        let testimonialsHeadings = document.querySelectorAll(".testimonials-heading");
+        testimonialsHeadings.forEach((testimonialsHeading) => {
+            testimonialsHeading.textContent.split("").forEach((elem) => {
+                clutter += `<span>${elem}</span>`;
+            });
+            testimonialsHeading.innerHTML = clutter;
+        });
+
+        gsap.to(".testimonials-heading span", {
+            scrollTrigger: {
+                trigger: `.testimonials-heading`,
+                start: `top 80%`,
+                end: `bottom 80%`,
+                scroller: `body`,
+                scrub: .5,
+                markers: true,
+            },
+            stagger: .2,
+            color: `blue`
+        });
+
+        function exploreText() {
+            let exploreText = document.querySelector(".explore-text");
+            gsap.from(exploreText, {
+                y: 100,
+                opacity: 0,
+                duration: 2,
+                scrollTrigger: {
+                    trigger: ".explore-text",
+                    scroller: 'body',
+                    start: "top 50%",
+                    end: "bottom 50%",
+                    scrub: 2,
+                    markers: true,
+                }
+            });
+        }
+
+        exploreText();
+    </script>
+</body>
+
+</html>
