@@ -4,24 +4,51 @@
 })();
 
 
+// Set the initial scale of the ".sildeTxt" element
+gsap.set(".sildeText", { scale: 3 });
 
-function homeSectionAnimation() {
-    gsap.to(".videodiv", {
-        scrollTrigger: {
-            trigger: ".home",
-            start: "top top",
-            end: "bottom top",
-            // markers: true,
-            scrub: 3,
-            pin: true
-        },
-        '--clip': "0%",
-        ease: Power2,
-        duration: 2,
-    })
-}
 
-homeSectionAnimation()
+// Create a GSAP timeline with ScrollTrigger
+let tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".home",       // Element that triggers the scroll animation
+        start: "top top",       // Start the animation when the ".home" section reaches the top of the viewport
+        end: "bottom top",      // End the animation when the bottom of ".home" reaches the top of the viewport
+        scrub: 1,               // Smoothly scrub the timeline as the user scrolls
+        pin: true               // Pin the ".home" section during the animation
+    }
+});
+
+
+// Define a function for the home section animation
+
+tl.to(".videodiv", {
+    '--clip': "0%",
+    ease: Power2.easeInOut,
+    duration: 2,
+}, 'a')
+    .to(".sildeText", {
+        scale: 1,
+        ease: Power2.easeInOut
+    }, 'a');
+
+tl.to(".lft", {
+    xPercent: -10,
+    ease: Power2
+}, 'b')
+
+tl.to(".rgt", {
+    xPercent: 10,
+    ease: Power2
+}, 'b')
+
+
+
+
+
+
+// Add another animation to the timeline to scale ".sildeTxt" back to 1
+
 
 // gsap.to(".cards__item", {
 //     scale: 1.2,
@@ -52,7 +79,7 @@ function horizontalScrollbar() {
             pin: true,
             scrub: true,
             invalidateOnRefresh: true,
-            // markers: true,
+
         }
     });
 }
@@ -88,7 +115,6 @@ function themeChange() {
                 trigger: elem,
                 start: "top 50%",
                 end: "bottom 50%",
-                markers: true,
                 onEnter: function () {
                     document.body.setAttribute("theme", elem.dataset.color)
                 },
@@ -116,7 +142,7 @@ function TextAnimation() {
             end: `bottom 50%`,
             scroller: `body`,
             scrub: 4,
-            // markers: true,
+
         },
         stagger: .2,
         color: `blue`,
@@ -143,7 +169,7 @@ function exploreText() {
             start: "top 70%",
             end: "bottom 90%",
             scrub: 2,
-            markers: true,
+
         },
         stagger: 0.2, // Adding stagger effect
     })
